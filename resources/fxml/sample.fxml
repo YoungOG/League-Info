@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.calvin.leagueinfo.controllers.UserMenuController">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar prefHeight="0.0" prefWidth="600.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="View">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                     </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+            <HBox prefHeight="11.0" prefWidth="1034.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="summonerSearchBar" onAction="#handleSearchButton" prefHeight="25.0" prefWidth="239.0" promptText="Search player" />
+                  <Button fx:id="summonerSearchBarButton" mnemonicParsing="false" onAction="#handleSearchButton" prefHeight="25.0" prefWidth="78.0" text="Search" />
+                  <Region prefHeight="14.0" prefWidth="178.0" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </HBox.margin></Region>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <left>
+      <ListView fx:id="summonerList" prefHeight="534.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <TabPane fx:id="mainTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab fx:id="overviewTab" text="Overview">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="505.0" prefWidth="1032.0">
+                           <children>
+                              <GridPane prefHeight="297.0" prefWidth="841.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <GridPane prefHeight="189.0" prefWidth="419.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="10.0" prefWidth="150.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="10.0" prefWidth="150.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                          <RowConstraints maxHeight="121.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="155.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="128.0" text="PUBLIC STATISTICS" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
+                                          <Label prefHeight="17.0" prefWidth="70.0" text="Total Wins" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+                                          <Label prefHeight="17.0" prefWidth="70.0" text="Total Kills" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+                                          <Label prefHeight="17.0" prefWidth="70.0" text="Gold Earned" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" />
+                                          <Label prefHeight="17.0" prefWidth="135.0" text="Minions Killed" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+                                          <Label prefHeight="17.0" prefWidth="135.0" text="Total Assists" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+                                          <Label prefHeight="17.0" prefWidth="135.0" text="Turrets Downed" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" />
+                                          <Label fx:id="public_total_wins" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="90.0" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="public_total_kills" alignment="CENTER_RIGHT" layoutX="197.0" layoutY="72.0" prefHeight="17.0" prefWidth="90.0" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="public_turrets_downed" alignment="CENTER_RIGHT" layoutX="197.0" layoutY="72.0" prefHeight="17.0" prefWidth="90.0" text="0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="public_total_assists" alignment="CENTER_RIGHT" layoutX="197.0" layoutY="72.0" prefHeight="17.0" prefWidth="90.0" text="0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="public_minions_killed" alignment="CENTER_RIGHT" layoutX="197.0" layoutY="72.0" prefHeight="17.0" prefWidth="90.0" text="0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="public_gold_earned" alignment="CENTER_RIGHT" layoutX="197.0" layoutY="72.0" prefHeight="17.0" prefWidth="90.0" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </GridPane>
+                                    <GridPane layoutX="18.0" layoutY="18.0" prefHeight="189.0" prefWidth="419.0" GridPane.columnIndex="1">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="128.0" text="RANKED STATISTICS" />
+                                          <Label prefHeight="17.0" prefWidth="70.0" text="Penta Kills" GridPane.rowIndex="1" />
+                                          <Label prefHeight="17.0" prefWidth="70.0" text="Double Kills" GridPane.rowIndex="2" />
+                                          <Label prefHeight="17.0" prefWidth="70.0" text="Gold Earned" GridPane.rowIndex="3" />
+                                          <Label prefHeight="17.0" prefWidth="135.0" text="Quadra Kills" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label prefHeight="17.0" prefWidth="135.0" text="Total Kills" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label prefHeight="17.0" prefWidth="135.0" text="Turrets Downed" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Label text="Triple Kills" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Label layoutX="276.0" layoutY="72.0" text="Total Assists" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Label layoutX="276.0" layoutY="98.0" text="Killing Sprees" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" />
+                                          <Label fx:id="ranked_penta_kills" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="70.0" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="ranked_killing_sprees" alignment="CENTER_RIGHT" layoutX="77.0" layoutY="72.0" prefHeight="17.0" prefWidth="70.0" text="0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="ranked_total_assists" alignment="CENTER_RIGHT" layoutX="18.0" layoutY="34.0" prefHeight="17.0" prefWidth="70.0" text="0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="ranked_triple_kills" alignment="CENTER_RIGHT" layoutX="18.0" layoutY="34.0" prefHeight="17.0" prefWidth="70.0" text="0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="ranked_turrets_downed" alignment="CENTER_RIGHT" layoutX="18.0" layoutY="34.0" prefHeight="17.0" prefWidth="70.0" text="0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="ranked_total_kills" alignment="CENTER_RIGHT" layoutX="18.0" layoutY="34.0" prefHeight="17.0" prefWidth="70.0" text="0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="ranked_quadra_kills" alignment="CENTER_RIGHT" layoutX="18.0" layoutY="34.0" prefHeight="17.0" prefWidth="70.0" text="0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="ranked_gold_earned" alignment="CENTER_RIGHT" layoutX="18.0" layoutY="34.0" prefHeight="17.0" prefWidth="70.0" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="ranked_double_kills" alignment="CENTER_RIGHT" layoutX="18.0" layoutY="34.0" prefHeight="17.0" prefWidth="130.0" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                             <padding>
+                                                <Insets right="8.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="10.0" prefWidth="140.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="10.0" prefWidth="140.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="10.0" prefWidth="140.0" />
+                                       </columnConstraints>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="121.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="155.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="currentMatchTab" text="Current Match">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox fx:id="currentMatchVBox" prefHeight="705.0" prefWidth="1032.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TableView fx:id="alphaTableView" fixedCellSize="63.5">
+                                <columns>
+                                  <TableColumn fx:id="alphaNameColumn" editable="false" prefWidth="170.0" resizable="false" text="Name" />
+                                  <TableColumn fx:id="alphaChampionColumn" editable="false" prefWidth="170.0" resizable="false" text="Champion" />
+                                    <TableColumn fx:id="alphaSeasonColumn" editable="false" minWidth="0.0" prefWidth="155.0" resizable="false" text="Current Season" />
+                                    <TableColumn fx:id="alphaWinsColumn" editable="false" minWidth="0.0" prefWidth="90.0" resizable="false" text="Wins" />
+                                    <TableColumn fx:id="alphaRankedWinsColumn" editable="false" minWidth="0.0" prefWidth="100.0" resizable="false" text="Ranked Wins" />
+                                    <TableColumn fx:id="alphaKDAColumn" editable="false" minWidth="0.0" prefWidth="130.0" resizable="false" text="KDA" />
+                                </columns>
+                              </TableView>
+                              <TableView fx:id="bravoTableView" fixedCellSize="63.5">
+                                  <columns>
+                                    <TableColumn fx:id="bravoNameColumn" editable="false" prefWidth="170.0" resizable="false" text="Name" />
+                                    <TableColumn fx:id="bravoChampionColumn" editable="false" prefWidth="170.0" resizable="false" text="Champion" />
+                                    <TableColumn fx:id="bravoSeasonColumn" editable="false" minWidth="0.0" prefWidth="155.0" resizable="false" text="Current Season" />
+                                    <TableColumn fx:id="bravoWinsColumn" editable="false" minWidth="0.0" prefWidth="90.0" resizable="false" text="Wins" />
+                                    <TableColumn fx:id="bravoRankedWinsColumn" editable="false" minWidth="0.0" prefWidth="100.0" resizable="false" text="Ranked Wins" />
+                                    <TableColumn fx:id="bravoKDAColumn" editable="false" minWidth="0.0" prefWidth="130.0" resizable="false" text="KDA" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab fx:id="matchHistoryTab" text="Recent Matches">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutY="-2.0" prefHeight="705.0" prefWidth="1032.0">
+                           <children>
+                              <ListView fx:id="matchHistoryListView" fixedCellSize="150.0" prefHeight="705.0" prefWidth="1032.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </ListView>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
